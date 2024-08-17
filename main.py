@@ -15,13 +15,14 @@ json_saver = JSONSaver()
 json_saver.add_vacancy(vacancy)
 json_saver.delete_vacancy(vacancy)
 
+
 # Функция для взаимодействия с пользователем
 def user_interaction():
     platforms = ["HeadHunter"]
     search_query = input("Введите поисковый запрос: ")
     top_n = int(input("Введите количество вакансий для вывода в топ N: "))
     filter_words = input("Введите ключевые слова для фильтрации вакансий: ").split()
-    salary_range = input("Введите диапазон зарплат: ") # Пример: 100000 - 150000
+    salary_range = input("Введите диапазон зарплат: ")  # Пример: 100000 - 150000
 
     filtered_vacancies = filter_vacancies(vacancies_list, filter_words)
 

@@ -1,4 +1,13 @@
+from abc import ABC, abstractmethod
+
 import requests
+
+
+class Parser(ABC):
+
+    @abstractmethod
+    def load_vacancies(self, keyword):
+        pass
 
 
 class HH(Parser):
@@ -7,12 +16,12 @@ class HH(Parser):
     Класс Parser является родительским классом, который вам необходимо реализовать
     """
 
-    def __init__(self, file_worker):
+    def __init__(self):
         self.url = 'https://api.hh.ru/vacancies'
         self.headers = {'User-Agent': 'HH-User-Agent'}
         self.params = {'text': '', 'page': 0, 'per_page': 100}
         self.vacancies = []
-        super().__init__(file_worker)
+        # super().__init__(file_worker)
 
     def load_vacancies(self, keyword):
         self.params['text'] = keyword
@@ -21,3 +30,8 @@ class HH(Parser):
             vacancies = response.json()['items']
             self.vacancies.extend(vacancies)
             self.params['page'] += 1
+
+
+get_vacancies = HH()
+get_vacancies.load_vacancies("Python")
+print(get_vacancies.vacancies[0])
