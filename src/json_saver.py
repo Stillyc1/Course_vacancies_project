@@ -25,5 +25,5 @@ if __name__ == "__main__":
     vacancys = Vacancy("Python Developer", "<https://hh.ru/vacancy/123456>", "Требования: опыт работы от 3 лет...")
 
     json_saver = JSONSaver()
-    # json_saver.add_vacancy(vacancys)
+    json_saver.add_vacancy(vacancys)
     json_saver.delete_vacancy(vacancys)
