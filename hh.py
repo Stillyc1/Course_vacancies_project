@@ -32,6 +32,7 @@ class HH(Parser):
             self.params['page'] += 1
 
 
-get_vacancies = HH()
-get_vacancies.load_vacancies("Python")
-print(get_vacancies.vacancies[0])
+if __name__ == "__main__":
+    get_vacancies = HH()
+    get_vacancies.load_vacancies("Python")
+    print(get_vacancies.vacancies[0])
