@@ -70,15 +70,15 @@ if __name__ == "__main__":
     ]
 
     # search_query = input("Введите поисковый запрос: ")
-    top_n = int(input("Введите количество вакансий для вывода в топ N: "))
-    filter_words = input("Введите ключевые слова для фильтрации вакансий: ").split()
-    salary_range = input("Введите диапазон зарплат: ")  # Пример: 100000 - 150000
+    top_ = int(input("Введите количество вакансий для вывода в топ N: "))
+    filter_word = input("Введите ключевые слова для фильтрации вакансий: ").split()
+    salary_rang = input("Введите диапазон зарплат: ")  # Пример: 100000 - 150000
 
-    filtered_vacanciess = filter_vacancies(my_list, filter_words)
+    filtered_vacanciess = filter_vacancies(my_list, filter_word)
 
-    ranged_vacancies = get_vacancies_by_salary(filtered_vacanciess, salary_range)
+    ranged_vacancies = get_vacancies_by_salary(filtered_vacanciess, salary_rang)
 
-    top_vacancies = get_top_vacancies(ranged_vacancies, top_n)
+    top_vacancies = get_top_vacancies(ranged_vacancies, top_)
 
     print_vacancies(top_vacancies)
 

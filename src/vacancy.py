@@ -34,11 +34,18 @@ class Vacancy:
     def cast_to_object_list(cls, list_vacancies):
         """Метод добавления вакансий из списка вакансий"""
         for vacancies in list_vacancies:
+            if vacancies["salary"] is None:
+                vacancies["salary"] = {"from": 0, "to": 0}
+            elif vacancies["salary"]["from"] is None:
+                vacancies["salary"] = {"from": 0, "to": vacancies["salary"]["to"]}
+            elif vacancies["salary"]["to"] is None:
+                vacancies["salary"] = {"from": vacancies["salary"]["from"], "to": 0}
+
             cls(
                 name=vacancies["name"],
                 url=vacancies["url"],
                 salary=vacancies["salary"],
-                snippet=vacancies["snippet"]["requirement"],
+                snippet=vacancies["snippet"]["requirement"] if vacancies["snippet"]["requirement"] is not None else "",
             )
         return cls.__list_vacancies
 
