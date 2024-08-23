@@ -5,10 +5,11 @@ class Vacancy:
 
     def __init__(
         self,
-        name: str = "не указан",
-        url: str = "не указан",
-        snippet: str = "не указан",
+        name: str = "Не указан",
+        url: str = "Не указан",
         salary: str | None | dict = None,
+        snippet: str = "Не указан"
+
     ):
         """Констркутор инициализации обьекта класса Vacancy (вакансия работника)"""
         self.__name = name
