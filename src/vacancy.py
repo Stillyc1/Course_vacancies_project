@@ -61,6 +61,10 @@ class Vacancy:
     def list_vacancies(cls):
         return cls.__list_vacancies
 
+    @classmethod
+    def clear_list(cls):
+        cls.__list_vacancies = []
+
     @property
     def name(self):
         return self.__name
@@ -79,33 +83,17 @@ class Vacancy:
 
 
 if __name__ == "__main__":
-    rob1 = Vacancy("Python Developer", "<https://hh.ru/vacancy/123456>", "Требования: опыт работы от 3 лет...")
+    rob1 = Vacancy("Python Developer", "<https://hh.ru/vacancy/123456>",
+                   snippet="Требования: опыт работы от 3 лет...")
     rob2 = Vacancy(
-        "Python Developer", "<https://hh.ru/vacancy/123456>", "Требования: опыт работы от 3 лет...", "100000 - 150000"
-    )
+        "Python Developer", "<https://hh.ru/vacancy/123456>", "100000 - 150000",
+        "Требования: опыт работы от 3 лет...")
     rob3 = Vacancy(
-        "Python Developer", "<https://hh.ru/vacancy/123456>", "Требования: опыт работы от 3 лет...", "110000 - 160000"
-    )
-    rob4 = Vacancy(
-        "Python Developer", "<https://hh.ru/vacancy/123456>", "Требования: опыт работы от 3 лет...", "120000 - 170000"
-    )
-    rob5 = Vacancy(
-        "Python Developer", "<https://hh.ru/vacancy/123456>", "Требования: опыт работы от 3 лет...", "130000 - 180000"
-    )
-    rob6 = Vacancy(
-        "Python Developer", "<https://hh.ru/vacancy/123456>", "Требования: опыт работы от 3 лет...", "140000 - 190000"
-    )
-    rob7 = Vacancy(
-        "Python Developer", "<https://hh.ru/vacancy/123456>", "Требования: опыт работы от 3 лет...", "150000 - 200000"
-    )
-    # rob8 = Vacancy("Python Developer", "<https://hh.ru/vacancy/123456>", "Требования: опыт работы от 3 лет...",
-    #                "160000")
-    rob9 = Vacancy(
-        "Python Developer", "<https://hh.ru/vacancy/123456>", "Требования: опыт работы от 3 лет...", "0 - 220000"
-    )
+        "Python Developer", "<https://hh.ru/vacancy/123456>", "110000 - 160000",
+        "Требования: опыт работы от 3 лет...")
 
     print(Vacancy.list_vacancies)
 
     Vacancy.filtered_salary(0, 160000)
 
-    print(Vacancy.__ge__(rob3, rob4))
+    print(Vacancy.__ge__(rob3, rob2))

@@ -145,3 +145,47 @@ def test_read_file():
             '        "snippet": "Требования: опыт работы от 3 лет..."\n'
             '    }\n'
             ']')
+
+
+@pytest.fixture
+def vacancy_1():
+    return Vacancy(
+        "Python Developer", "<https://hh.ru/vacancy/123456>", "100000 - 150000",
+        "Требования: опыт работы от 3 лет...")
+
+
+@pytest.fixture
+def vacancy_2():
+    return Vacancy(
+        "Python Developer", "<https://hh.ru/vacancy/123456>", "110000 - 160000",
+        "Требования: опыт работы от 3 лет...")
+
+
+@pytest.fixture
+def test_result_filtered_vacancy():
+    return {'name': 'Python Developer', 'url': '<https://hh.ru/vacancy/123456>',
+            'salary': {'from': 100000, 'to': 150000}, 'snippet': 'Требования: опыт работы от 3 лет...'}
+
+
+@pytest.fixture
+def test_cast_to_object_vacancy():
+    return [
+        {'name': 'Python', 'url': '<https://hh.ru/vacancy/1234561>',
+         'salary': {'from': 100000, 'to': 150000}, 'snippet': {"requirement": 'Требования: опыт работы от 1 лет...'}},
+        {'name': 'Developer', 'url': '<https://hh.ru/vacancy/123452>',
+         'salary': {'from': 110000, 'to': 160000}, 'snippet': {"requirement": 'Требования: опыт работы от 2 лет...'}},
+        {'name': 'Python Developer', 'url': '<https://hh.ru/vacancy/123453>',
+         'salary': {'from': 120000, 'to': 170000}, 'snippet': {"requirement": 'Требования: опыт работы от 3 лет...'}}
+    ]
+
+
+@pytest.fixture
+def test_cast_to_add_vacancy():
+    return [
+        {'name': 'Python', 'url': '<https://hh.ru/vacancy/1234561>',
+         'salary': {'from': 100000, 'to': 150000}, 'snippet': 'Требования: опыт работы от 1 лет...'},
+        {'name': 'Developer', 'url': '<https://hh.ru/vacancy/123452>',
+         'salary': {'from': 110000, 'to': 160000}, 'snippet': 'Требования: опыт работы от 2 лет...'},
+        {'name': 'Python Developer', 'url': '<https://hh.ru/vacancy/123453>',
+         'salary': {'from': 120000, 'to': 170000}, 'snippet': 'Требования: опыт работы от 3 лет...'}
+    ]
