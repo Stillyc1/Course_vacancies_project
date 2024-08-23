@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class BaseSaveFile(ABC):
-    """ Абстрактный класс инициализации пути до файла, для записи """
+    """Абстрактный класс инициализации пути до файла, для записи"""
 
     @abstractmethod
     def __init__(self, file_worker):
@@ -10,7 +10,7 @@ class BaseSaveFile(ABC):
 
 
 class BaseLoadVacancies(ABC):
-    """ Абстрактный класс для создания метода, получение вакансий по ключевому слову """
+    """Абстрактный класс для создания метода, получение вакансий по ключевому слову"""
 
     @abstractmethod
     def load_vacancies(self, keyword):
