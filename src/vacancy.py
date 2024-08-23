@@ -38,7 +38,7 @@ class Vacancy:
                 name=vacancies["name"],
                 url=vacancies["url"],
                 salary=vacancies["salary"],
-                snippet=vacancies["snippet"]["responsibility"],
+                snippet=vacancies["snippet"]["requirement"],
             )
         return cls.__list_vacancies
 

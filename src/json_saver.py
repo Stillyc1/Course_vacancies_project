@@ -11,7 +11,7 @@ class JSONSaver(BaseJsonSaver):
         """Констркутор, инициализирует путь до файла (для работы с ним)"""
         self.file_saver = file_saver
 
-    def add_vacancy(self, vacancies: Vacancy | list):
+    def add_vacancy(self, vacancies: Vacancy | dict):
         """Метод добавления вакансий в файл json"""
         with open(self.file_saver, "r+", encoding="utf-8") as file:
             try:

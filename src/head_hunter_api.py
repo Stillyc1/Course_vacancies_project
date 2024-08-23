@@ -8,7 +8,7 @@ from src.base_api import BaseLoadVacancies, BaseSaveFile
 class HeadHunterAPI(BaseSaveFile, BaseLoadVacancies):
     """Класс получает информацию о вакансиях с сайта HeadHunter"""
 
-    def __init__(self, file_worker: str = "../data/json_vacancies.json"):
+    def __init__(self, file_worker: str = "data/json_vacancies.json"):
         """Конструктор обьекта запроса инфо через API сервис"""
 
         self.__url = "https://api.hh.ru/vacancies"
@@ -37,6 +37,6 @@ class HeadHunterAPI(BaseSaveFile, BaseLoadVacancies):
 
 
 if __name__ == "__main__":
-    hh = HeadHunterAPI()
+    hh = HeadHunterAPI(file_worker="../data/json_vacancies.json")
     hh.load_vacancies("Разработчик")
     hh.load_info_to_file()
