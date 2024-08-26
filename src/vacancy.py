@@ -15,21 +15,26 @@ class Vacancy:
         self.__name = name
         self.__url = url
         self.__snippet = snippet
-
-        if salary is not None:
-            self.__salary = salary
-            if type(salary) is str:
-                salary_split = salary.split(" ")
-                self.__salary = {"from": int(salary_split[0]), "to": int(salary_split[2])}
-        else:
-            self.__salary = {"from": 0, "to": 0}
+        self.__salary = salary
 
         dict_vacancy = {"name": self.__name, "url": self.__url, "salary": self.__salary, "snippet": self.__snippet}
         self.__list_vacancies.append(dict_vacancy)
 
+    @classmethod
+    def validate_salary(cls):
+        """Метод валидации данных по зарплате"""
+        for vacancy in cls.__list_vacancies:
+            if vacancy["salary"] is not None:
+                vacancy["salary"] = vacancy["salary"]
+                if type(vacancy["salary"]) is str:
+                    salary_split = vacancy["salary"].split(" ")
+                    vacancy["salary"] = {"from": int(salary_split[0]), "to": int(salary_split[2])}
+            else:
+                vacancy["salary"] = {"from": 0, "to": 0}
+
     def __ge__(self: __name__, other: __name__):
         """Метод сравнения вакансий по зарплате (верхний порог)"""
-        return self.__salary["to"] >= other.__salary["to"]
+        return self.__salary >= other.__salary
 
     @classmethod
     def cast_to_object_list(cls, list_vacancies):
@@ -92,8 +97,12 @@ if __name__ == "__main__":
         "Python Developer", "<https://hh.ru/vacancy/123456>", "110000 - 160000",
         "Требования: опыт работы от 3 лет...")
 
-    print(Vacancy.list_vacancies)
+    Vacancy.validate_salary()
+    # print(Vacancy.list_vacancies)
 
-    Vacancy.filtered_salary(0, 160000)
+    Vacancy.filtered_salary(0, 150000)
 
-    print(Vacancy.__ge__(rob3, rob2))
+    print(rob3.list_vacancies())
+    print(rob2.salary)
+    print(rob1.salary)
+    print(Vacancy.__ge__(rob2, rob3))

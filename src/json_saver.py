@@ -11,6 +11,19 @@ class JSONSaver(BaseJsonSaver):
         """Констркутор, инициализирует путь до файла (для работы с ним)"""
         self.file_saver = file_saver
 
+    def load_json(self):
+        """Метод получения данных из файла"""
+        with open(self.file_saver, encoding="utf-8") as file:
+            json_file = json.load(file)
+            return json_file
+
+    @staticmethod
+    def load_info_json(file_path):
+        """Метод получения данных из файла"""
+        with open(file_path, encoding="utf-8") as file:
+            json_file = json.load(file)
+            return json_file
+
     def add_vacancy(self, vacancies: Vacancy | dict):
         """Метод добавления вакансий в файл json"""
         with open(self.file_saver, "r+", encoding="utf-8") as file:
@@ -55,7 +68,8 @@ class JSONSaver(BaseJsonSaver):
 
 
 if __name__ == "__main__":
-    vacancys = Vacancy("Python Developer", "<https://hh.ru/vacancy/123456>", "Требования: опыт работы от 3 лет...")
+    vacancys = Vacancy("Python Developer", "<https://hh.ru/vacancy/123456>", "100000 - 130000",
+                       "Требования: опыт работы от 3 лет...")
 
     json_saver = JSONSaver("../data/filtered_vacancies.json")
     json_saver.add_vacancy(vacancys)

@@ -45,6 +45,7 @@ def user_interaction():
         "Требования: опыт работы от 3 лет...",
     )
 
+    Vacancy.validate_salary()
     # Сохранение информации о вакансиях в файл
     json_saver = JSONSaver()
     json_saver.add_vacancy(vacancy)

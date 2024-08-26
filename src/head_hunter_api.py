@@ -1,5 +1,3 @@
-import json
-
 import requests
 
 from src.base_api import BaseLoadVacancies, BaseSaveFile
@@ -29,14 +27,7 @@ class HeadHunterAPI(BaseSaveFile, BaseLoadVacancies):
 
         return self.__vacancies
 
-    def load_info_to_file(self):
-        """Метод сохранения информации о вакансиях в файл формата json"""
-
-        with open(self.file_worker, "w", encoding="utf-8") as file:
-            json.dump(self.__vacancies, file, ensure_ascii=False, indent=4)
-
 
 if __name__ == "__main__":
     hh = HeadHunterAPI(file_worker="../data/json_vacancies.json")
     hh.load_vacancies("Разработчик")
-    hh.load_info_to_file()
