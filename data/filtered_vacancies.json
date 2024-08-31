@@ -1,93 +1,11 @@
 [
     {
-        "name": "Су - шеф (Опалихинская, 46)",
-        "url": "https://api.hh.ru/vacancies/102358935?host=hh.ru",
+        "name": "Python Developer",
+        "url": "<https://hh.ru/vacancy/123456>",
         "salary": {
-            "from": 85000,
-            "to": 0
+            "from": 100000,
+            "to": 130000
         },
-        "snippet": "Опыт работы <highlighttext>поваром</highlighttext> от 1 года. Опыт работы в общественном питании (Европейская, Японская, Русская кухня,). Опыт в сетевых ресторанах приветствуется..."
-    },
-    {
-        "name": "Повар в ресторан \"N'KEI\" (Перуанско-Японская кухня)",
-        "url": "https://api.hh.ru/vacancies/97208474?host=hh.ru",
-        "salary": {
-            "from": 59000,
-            "to": 0
-        },
-        "snippet": "Мы хотим видеть от вас: - Внимательность к деталям, чтобы обеспечить высокое качество и презентацию блюд. - Способность работать в режиме многозадачности..."
-    },
-    {
-        "name": "Middle Python Developer",
-        "url": "https://api.hh.ru/vacancies/106269853?host=hh.ru",
-        "salary": {
-            "from": 120000,
-            "to": 150000,
-            "currency": "RUR",
-            "gross": false
-        },
-        "snippet": "1-3 года коммерческого опыта программирования на Python. Уверенное знание принципов ООП. Опыт работы с AioGram, Telebot будет преимуществом. "
-    },
-    {
-        "name": "Программист Python/Data Scientist (junior)",
-        "url": "https://api.hh.ru/vacancies/105896962?host=hh.ru",
-        "salary": {
-            "from": 90000,
-            "to": 150000,
-            "currency": "RUR",
-            "gross": false
-        },
-        "snippet": "Знаешь Python + основные пакеты работы с данными и ML: pandas, numpy, torch, Scikit-learn, matplotlib. Знаешь основы математической статистики. "
-    },
-    {
-        "name": "Middle Python Backend разработчик",
-        "url": "https://api.hh.ru/vacancies/105822309?host=hh.ru",
-        "salary": {
-            "from": 110000,
-            "to": 150000,
-            "currency": "RUR",
-            "gross": true
-        },
-        "snippet": "Опыт разработки в коммерческих проектах от 2 лет. Опыт работы с распределенными системами. Хорошее знание Python, Django, FastAPI. "
-    },
-    {
-        "name": "Backend разработчик Python (Django)",
-        "url": "https://api.hh.ru/vacancies/106007277?host=hh.ru",
-        "salary": {
-            "from": 120000,
-            "to": 150000,
-            "currency": "RUR",
-            "gross": false
-        },
-        "snippet": "продвинутое знание Python-Django. - уровень не ниже Middle и Middle+. - базовые знания HTML. - Django Celery -Django REST framework. - "
-    },
-    {
-        "name": "Web-программист",
-        "url": "https://api.hh.ru/vacancies/105546929?host=hh.ru",
-        "salary": {
-            "from": 120000,
-            "to": 150000,
-            "currency": "RUR",
-            "gross": false
-        },
-        "snippet": "Знания: Python, Django, HTML, CSS, SQL, JavaScript, jQuery, Ajax, XML, JSON. Опыт работы с Nginx. Навыки верстки под современные браузеры..."
-    },
-    {
-        "name": "Повар в ресторан \"N'KEI\" (Перуанско-Японская кухня)",
-        "url": "https://api.hh.ru/vacancies/97208474?host=hh.ru",
-        "salary": {
-            "from": 60000,
-            "to": 0
-        },
-        "snippet": "Мы хотим видеть от вас: - Внимательность к деталям, чтобы обеспечить высокое качество и презентацию блюд. - Способность работать в режиме многозадачности..."
-    },
-    {
-        "name": "Повар в офис (домашняя кухня)",
-        "url": "https://api.hh.ru/vacancies/105930322?host=hh.ru",
-        "salary": {
-            "from": 65000,
-            "to": 0
-        },
-        "snippet": "Профильное образование, опыт работы <highlighttext>поваром</highlighttext>, кондитером, <highlighttext>поваром</highlighttext> в семье. Личностные качества: ответственность, исполнительность, чистоплотность."
+        "snippet": "Требования: опыт работы от 3 лет..."
     }
 ]

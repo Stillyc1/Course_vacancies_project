@@ -15,26 +15,26 @@ class Vacancy:
         self.__name = name
         self.__url = url
         self.__snippet = snippet
-        self.__salary = salary
+        self.__salary = self.__validate(salary)  # метод для проверки валидации зарплаты
 
         dict_vacancy = {"name": self.__name, "url": self.__url, "salary": self.__salary, "snippet": self.__snippet}
         self.__list_vacancies.append(dict_vacancy)
 
-    @classmethod
-    def validate_salary(cls):
-        """Метод валидации данных по зарплате"""
-        for vacancy in cls.__list_vacancies:
-            if vacancy["salary"] is not None:
-                vacancy["salary"] = vacancy["salary"]
-                if type(vacancy["salary"]) is str:
-                    salary_split = vacancy["salary"].split(" ")
-                    vacancy["salary"] = {"from": int(salary_split[0]), "to": int(salary_split[2])}
-            else:
-                vacancy["salary"] = {"from": 0, "to": 0}
+    def __validate(self, salary):
+        """Метод валидации зарплаты"""
+        if salary is not None:
+            self.__salary = salary
+            if type(salary) is str:
+                salary_split = salary.split(" ")
+                self.__salary = {"from": int(salary_split[0]), "to": int(salary_split[2])}
+        else:
+            self.__salary = {"from": 0, "to": 0}
+
+        return self.__salary
 
     def __ge__(self: __name__, other: __name__):
         """Метод сравнения вакансий по зарплате (верхний порог)"""
-        return self.__salary >= other.__salary
+        return self.__salary["to"] >= other.__salary["to"]
 
     @classmethod
     def cast_to_object_list(cls, list_vacancies):
@@ -59,7 +59,7 @@ class Vacancy:
     def filtered_salary(cls, from_salary: int = 0, to_salary: int = float("inf")):
         """Метод фильтрации вакансий по зарплате (от и до вилка)"""
         for vacancies in cls.__list_vacancies:
-            if vacancies["salary"]["from"] >= from_salary and vacancies["salary"]["to"] <= to_salary:
+            if vacancies["salary"].get("from", 0) >= from_salary and vacancies["salary"]["to"] <= to_salary:
                 print(vacancies)
 
     @classmethod
@@ -97,7 +97,7 @@ if __name__ == "__main__":
         "Python Developer", "<https://hh.ru/vacancy/123456>", "110000 - 160000",
         "Требования: опыт работы от 3 лет...")
 
-    Vacancy.validate_salary()
+    # Vacancy.validate_salary()
     # print(Vacancy.list_vacancies)
 
     Vacancy.filtered_salary(0, 150000)

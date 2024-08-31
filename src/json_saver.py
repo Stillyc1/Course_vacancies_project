@@ -9,11 +9,11 @@ class JSONSaver(BaseJsonSaver):
 
     def __init__(self, file_saver: str = "data/filtered_vacancies.json"):
         """Констркутор, инициализирует путь до файла (для работы с ним)"""
-        self.file_saver = file_saver
+        self.__file_saver = file_saver
 
     def load_json(self):
         """Метод получения данных из файла"""
-        with open(self.file_saver, encoding="utf-8") as file:
+        with open(self.__file_saver, encoding="utf-8") as file:
             json_file = json.load(file)
             return json_file
 
@@ -26,13 +26,13 @@ class JSONSaver(BaseJsonSaver):
 
     def add_vacancy(self, vacancies: Vacancy | dict):
         """Метод добавления вакансий в файл json"""
-        with open(self.file_saver, "r+", encoding="utf-8") as file:
+        with open(self.__file_saver, "r+", encoding="utf-8") as file:
             try:
                 json.load(file)
             except json.JSONDecodeError:
                 file.write("[]")
 
-        with open(self.file_saver, "r+", encoding="utf-8") as file:
+        with open(self.__file_saver, "r+", encoding="utf-8") as file:
             json_file_vacancies = json.load(file)
 
             dict_vacancy = {
@@ -45,12 +45,12 @@ class JSONSaver(BaseJsonSaver):
             if dict_vacancy not in json_file_vacancies:
                 json_file_vacancies.append(dict_vacancy)
 
-        with open(self.file_saver, "w", encoding="utf-8") as file:
+        with open(self.__file_saver, "w", encoding="utf-8") as file:
             json.dump(json_file_vacancies, file, ensure_ascii=False, indent=4)
 
     def delete_vacancy(self, vacancies: Vacancy):
         """Метод удаления вакансий из файла json"""
-        with open(self.file_saver, "r+", encoding="utf-8") as file:
+        with open(self.__file_saver, "r+", encoding="utf-8") as file:
             json_file_vacancies = json.load(file)
 
             dict_vacancy = {
@@ -63,7 +63,7 @@ class JSONSaver(BaseJsonSaver):
             if dict_vacancy in json_file_vacancies:
                 json_file_vacancies.remove(dict_vacancy)
 
-        with open(self.file_saver, "w", encoding="utf-8") as file:
+        with open(self.__file_saver, "w", encoding="utf-8") as file:
             json.dump(json_file_vacancies, file, ensure_ascii=False, indent=4)
 
 
@@ -73,4 +73,4 @@ if __name__ == "__main__":
 
     json_saver = JSONSaver("../data/filtered_vacancies.json")
     json_saver.add_vacancy(vacancys)
-    json_saver.delete_vacancy(vacancys)
+    # json_saver.delete_vacancy(vacancys)
